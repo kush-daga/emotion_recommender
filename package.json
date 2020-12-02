@@ -1,5 +1,5 @@
 {
-  "name": "hacker_news_clone",
+  "name": "emotion_recommender",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,17 +12,19 @@
     "react-query": "^2.10.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
+    "react-webcam": "^5.2.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "yarn run watch:css && react-scripts start",
+    "build": "yarn run watch:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/output.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +40,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "postcss": "^8.1.10",
+    "postcss-cli": "^8.3.0",
+    "tailwindcss": "^2.0.1"
   }
 }
