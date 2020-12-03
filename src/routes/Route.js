@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 function RouteWrapper({
 	component: Component,
@@ -9,7 +9,7 @@ function RouteWrapper({
 	isLoginRoute,
 	...rest
 }) {
-	const isAuthenticated = true;
+	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
 	/**
 	 * Redirect user to SignIn page if he tries to access a private route

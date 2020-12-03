@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import Webcam from "react-webcam";
 import Result from "../Result";
 import * as faceapi from "face-api.js";
-// import * as canvas from "canvas";
+import { useDispatch } from "react-redux";
+import authActions from "../../store/auth/actions";
 
 export default function Dashboard() {
 	const webcamRef = useRef(null);
@@ -10,9 +11,7 @@ export default function Dashboard() {
 	const [loading, setLoading] = useState(true);
 	const [loadingPredictions, setLoadingPredictions] = useState(true);
 	const [prediction, setPrediction] = useState(null);
-	// const { Canvas, Image, ImageData } = canvas;
-	// faceapi.env.monkeyPatch({ Canvas, Image, ImageData });
-
+	const dispatch = useDispatch();
 	useEffect(() => {
 		const loadModels = async () => {
 			await faceapi.nets.ssdMobilenetv1.loadFromUri("/models");
@@ -30,11 +29,13 @@ export default function Dashboard() {
 		setOpen(true);
 		const imageSrc = webcamRef.current.getScreenshot();
 		const imgHTML = document.createElement("img");
+		imgHTML.id = "myImg";
 		imgHTML.src = imageSrc;
 		const detection = await faceapi
 			.detectAllFaces(imgHTML)
 			.withFaceExpressions()
 			.withAgeAndGender();
+		imgHTML.remove();
 		setPrediction(detection);
 		setLoadingPredictions(false);
 		console.log(detection);
@@ -48,7 +49,12 @@ export default function Dashboard() {
 				<div className="w-full h-screen flex flex-col justify-center align-center bg-gray-100">
 					<nav className="fixed h-20 top-0 w-full bg-black flex align-center justify-between">
 						<p className="text-white text-lg ml-10 self-center">Welcome Kush</p>
-						<button className="text-black bg-gray-200 mr-10 self-center py-2 px-4 rounded-lg">
+						<button
+							className="text-black bg-gray-200 mr-10 self-center py-2 px-4 rounded-lg"
+							onClick={() => {
+								dispatch(authActions.logoutUser());
+							}}
+						>
 							Logout
 						</button>
 					</nav>
