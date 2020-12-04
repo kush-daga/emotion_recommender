@@ -62,6 +62,10 @@ export default function Result({
 			<div>
 				{loading ? (
 					"Loading Data"
+				) : noOfFaces === 0 ? (
+					<h2 className="text-3xl bold text-white">
+						No Faces found! Try Again!
+					</h2>
 				) : (
 					<div className="flex flex-col justify-start w-3/4 m-auto">
 						<div>
