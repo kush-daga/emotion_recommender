@@ -24,7 +24,7 @@ const data = [
 				name: "Inside Out (2015) ",
 				link: "https://www.imdb.com/title/tt2096673/?ref_=tx_sp_sr_1_li_tt",
 				image:
-					"https://www.imdb.com/title/tt2096673/mediaviewer/rm3662344960?ref_=tt_ov_i",
+					"https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_.jpg",
 			},
 
 			{
