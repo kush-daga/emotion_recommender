@@ -48,7 +48,7 @@ export default function Dashboard() {
 			) : (
 				<div className="w-full h-screen flex flex-col justify-center align-center bg-gray-100">
 					<nav className="fixed h-20 top-0 w-full bg-black flex align-center justify-between">
-						<p className="text-white text-lg ml-10 self-center">Welcome Kush</p>
+						<p className="text-white text-lg ml-10 self-center">Welcome</p>
 						<button
 							className="text-black bg-gray-200 mr-10 self-center py-2 px-4 rounded-lg"
 							onClick={() => {
