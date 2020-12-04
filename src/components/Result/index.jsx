@@ -61,9 +61,11 @@ export default function Result({
 			</button>
 			<div>
 				{loading ? (
-					"Loading Data"
+					<h2 className="text-3xl bold text-center text-white">
+						Loading Data!
+					</h2>
 				) : noOfFaces === 0 ? (
-					<h2 className="text-3xl bold text-white">
+					<h2 className="text-3xl bold text-center text-white">
 						No Faces found! Try Again!
 					</h2>
 				) : (
