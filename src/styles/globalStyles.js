@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
     * {
       box-sizing: border-box;
+      font-family: 'Montserrat'
     }
     html, body {
       font-family: Lato,Helvetica-Neue,Helvetica,Arial,sans-serif;
